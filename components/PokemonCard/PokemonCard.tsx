@@ -6,8 +6,8 @@ import { Container, ImageContainer } from "./style";
 
 interface Props {
   name: string;
-  url: string;
-  id?: string;
+  url?: string;
+  id?: number;
 }
 
 const fallbackImageSrc =

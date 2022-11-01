@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import reducer from "./reducer";
+import { TypedUseSelectorHook, useSelector } from "react-redux";
 
 const persistConfig = {
   key: "pokemon",
@@ -44,6 +45,8 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
 
 export const persistor = persistStore(store);
 

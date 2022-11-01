@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AppState } from ".";
 
 import type { Pokemon } from "../types/pokemon";
 import { jsonFetch } from "../utils/api";
@@ -35,7 +36,7 @@ const initialState: State = {
 export const fetchPokemons = createAsyncThunk(
   "pokemon/fetchPokemons",
   async (_, { getState }) => {
-    const state = getState();
+    const state = getState() as AppState;
     const { results, count, next, previous }: PokemonListResponse =
       await jsonFetch(state.pokemon.next);
 

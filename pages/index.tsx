@@ -1,12 +1,11 @@
 import { Container, Main, Header, Logo } from "../components/sharedstyles";
 import Image from "next/image";
 import PokemonList from "../components/PokemonList";
-import { useSelector } from "react-redux";
-import { AppState } from "../store";
+import { useAppSelector } from "../store";
 import Error from "../components/Error";
 
 export default function Home() {
-  const error = useSelector<AppState>((state) => state.pokemon.error);
+  const error = useAppSelector((state) => state.pokemon.error);
 
   return (
     <Container>

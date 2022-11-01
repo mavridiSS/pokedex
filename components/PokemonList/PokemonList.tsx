@@ -1,9 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addPokemon, fetchPokemons } from "../../store/reducer";
 import PokemonCard from "../PokemonCard";
 import { Container } from "./style";
-import type { AppDispatch, AppState } from "../../store";
+import { AppDispatch, useAppSelector } from "../../store";
 import { Button } from "../sharedstyles";
 import dynamic from "next/dynamic";
 import Loader from "../Loader";
@@ -15,10 +15,10 @@ const Modal = dynamic(() => import("../Modal/Modal"), {
 export default function PokemonList() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch<AppDispatch>();
-  const pokemons = useSelector<AppState>((state) => state.pokemon.pokemons);
-  const myPokemons = useSelector<AppState>((state) => state.pokemon.myPokemons);
-  const status = useSelector<AppState>((state) => state.pokemon.status);
-  const next = useSelector<AppState>((state) => state.pokemon.next);
+  const pokemons = useAppSelector((state) => state.pokemon.pokemons);
+  const myPokemons = useAppSelector((state) => state.pokemon.myPokemons);
+  const status = useAppSelector((state) => state.pokemon.status);
+  const next = useAppSelector((state) => state.pokemon.next);
 
   React.useEffect(() => {
     handleLoadMore();
