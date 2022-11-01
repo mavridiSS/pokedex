@@ -20,8 +20,6 @@ export default function PokemonList() {
   const status = useSelector<AppState>((state) => state.pokemon.status);
   const next = useSelector<AppState>((state) => state.pokemon.next);
 
-  console.log(next);
-
   React.useEffect(() => {
     handleLoadMore();
   }, []);
@@ -34,8 +32,10 @@ export default function PokemonList() {
     setOpen(!open);
   };
 
-  const handleSavePokemon = (data) => {
-    dispatch(addPokemon({ name: data.target[0].value }));
+  const handleSavePokemon = (e) => {
+    e.preventDefault();
+    dispatch(addPokemon({ name: e.target[0].value }));
+    setOpen(!open);
   };
 
   if (status === "loading") return <Loader />;
