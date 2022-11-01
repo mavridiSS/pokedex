@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-  padding: 0 0.5rem;
+const flexContainer = `
   display: flex;
-  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+`;
+
+const Container = styled.div`
+  ${flexContainer}
+  padding: 0 0.5rem;
+  flex-flow: column nowrap;
 `;
 
 const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexContainer}
 `;
 
 const Main = styled.main`
+  ${flexContainer}
   flex: 1;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Logo = styled.div`
@@ -59,9 +59,7 @@ const PokemonType = styled.div<{ type: string }>`
   width: 60px;
   height: 40px;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexContainer}
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 600;
@@ -85,6 +83,13 @@ const PokeTypeContainer = styled.div`
   gap: 15px;
 `;
 
+const Custom404Container = styled.div`
+  ${flexContainer}
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+`;
+
 export {
   Container,
   Main,
@@ -95,4 +100,5 @@ export {
   PokeTypeContainer,
   Logo,
   Header,
+  Custom404Container,
 };

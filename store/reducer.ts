@@ -11,6 +11,7 @@ export interface State {
   next: string | null;
   previous: string | null;
   lastPokemonIndex: number;
+  error: string;
 }
 
 interface PokemonListResponse {
@@ -28,6 +29,7 @@ const initialState: State = {
   next: "https://pokeapi.co/api/v2/pokemon/",
   previous: null,
   lastPokemonIndex: 0,
+  error: "",
 };
 
 export const fetchPokemons = createAsyncThunk(
@@ -62,6 +64,10 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(fetchPokemons.pending, (state) => {
         state.status = "loading";
+      })
+      .addCase(fetchPokemons.rejected, (state) => {
+        state.status = "idle";
+        state.error = "Something went wrong. Please check back later!";
       })
       .addCase(fetchPokemons.fulfilled, (state, action) => {
         const { pokemons, count, next, previous } = action.payload;
