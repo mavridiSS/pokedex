@@ -19,7 +19,7 @@ export default function PokemonCard({ name, url, id }: Props) {
   const [imageSrc, setImageSrc] = React.useState(imageUrl);
 
   const common = (
-    <Container>
+    <Container data-testid="pokemon card">
       <ImageContainer>
         <Image
           src={imageSrc}
