@@ -16,4 +16,12 @@ Launches the Cypress test runner
 
 ### Notes
 
+#### Functionality
+
+- Error handling
+- Custom 404 page
+- Loading
+- Adding new pokemon
+- Pokemon details page
+
 Adding a new pokemon will store it in the browser local storage. All your custom pokemons will be first in the list and can't be edited for now.
